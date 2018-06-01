@@ -5,16 +5,40 @@
     <parent>
         <groupId>info.kilchhofer.bfh</groupId>
         <artifactId>robocup-parent-pom</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../robocup-parent-pom/pom.xml</relativePath>
+        <version>20180602.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>info.kilchhofer.bfh</groupId>
     <artifactId>robocup-ui</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>20180602.3</version>
+
     <modules>
         <module>robocup-consoleui-service</module>
     </modules>
+
+    <properties>
+        <bintray.repo>robocup</bintray.repo>
+        <bintray.package>robocup-ui</bintray.package>
+        <bintray.subject>mkilchhofer</bintray.subject>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>bintray-mkilchhofer-robocup</id>
+            <url>https://dl.bintray.com/mkilchhofer/robocup</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>info.kilchhofer.bfh</groupId>
+                <artifactId>robocup-common</artifactId>
+                <version>20180602.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

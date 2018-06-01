@@ -5,7 +5,7 @@
     <parent>
         <artifactId>robocup-ui</artifactId>
         <groupId>info.kilchhofer.bfh</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>20180602.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,7 +16,6 @@
         <dependency>
             <groupId>info.kilchhofer.bfh</groupId>
             <artifactId>robocup-common</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.mkilchhofer</groupId>
