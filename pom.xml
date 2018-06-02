@@ -5,14 +5,14 @@
     <parent>
         <groupId>info.kilchhofer.bfh</groupId>
         <artifactId>robocup-parent-pom</artifactId>
-        <version>20180602.3</version>
+        <version>20180602.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>info.kilchhofer.bfh</groupId>
     <artifactId>robocup-ui</artifactId>
     <packaging>pom</packaging>
-    <version>20180602.3</version>
+    <version>20180602.4</version>
 
     <modules>
         <module>robocup-consoleui-service</module>
@@ -36,7 +36,7 @@
             <dependency>
                 <groupId>info.kilchhofer.bfh</groupId>
                 <artifactId>robocup-common</artifactId>
-                <version>20180602.1</version>
+                <version>20180602.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
