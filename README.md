@@ -1,3 +1,3 @@
-[![Build Status](https://travis-ci.org/mkilchhofer/robocup-ui.svg?branch=master)](https://travis-ci.org/mkilchhofer/robocup-ui)
+[![Build Status](https://travis-ci.org/mkilchhofer/robocup-ui.svg?branch=master)](https://travis-ci.org/mkilchhofer/robocup-ui) [ ![Download](https://api.bintray.com/packages/mkilchhofer/robocup/robocup-ui/images/download.svg) ](https://bintray.com/mkilchhofer/robocup/robocup-ui/_latestVersion)
 # UI Services for Robocup
 ...
