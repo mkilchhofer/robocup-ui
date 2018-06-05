@@ -12,17 +12,22 @@
     <groupId>info.kilchhofer.bfh</groupId>
     <artifactId>robocup-ui</artifactId>
     <packaging>pom</packaging>
-    <version>20180602.4</version>
-
-    <modules>
-        <module>robocup-consoleui-service</module>
-    </modules>
+    <version>${revision}</version>
 
     <properties>
+        <!--
+            Define revision as fallback, normally defined via evn variable.
+            (eg. MAVEN_OPTS=-Drevision=$(date +%Y%m%d)-SNAPSHOT)
+        -->
+        <revision>1.0-SNAPSHOT</revision>
         <bintray.repo>robocup</bintray.repo>
         <bintray.package>robocup-ui</bintray.package>
         <bintray.subject>mkilchhofer</bintray.subject>
     </properties>
+
+    <modules>
+        <module>robocup-consoleui-service</module>
+    </modules>
 
     <repositories>
         <repository>

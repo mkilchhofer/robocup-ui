@@ -5,7 +5,7 @@
     <parent>
         <artifactId>robocup-ui</artifactId>
         <groupId>info.kilchhofer.bfh</groupId>
-        <version>20180602.4</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
