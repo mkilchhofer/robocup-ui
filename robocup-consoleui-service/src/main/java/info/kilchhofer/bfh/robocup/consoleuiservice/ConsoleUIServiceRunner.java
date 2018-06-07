@@ -1,4 +1,4 @@
-package info.kilchhofer.bfh.lidar.consoleuiservice;
+package info.kilchhofer.bfh.robocup.consoleuiservice;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -7,6 +7,8 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.UnknownHostException;
+
+import static info.kilchhofer.bfh.robocup.common.Constants.DEFAULT_BROKER_ADDRESS;
 
 public class ConsoleUIServiceRunner {
     private static final Logger LOGGER = LogManager.getLogger(ConsoleUIServiceRunner.class);
@@ -23,18 +25,19 @@ public class ConsoleUIServiceRunner {
         }
     }
 
-    public static void main(String[] args) throws MqttException, InterruptedException, IOException {
+    public static void main(String[] args) throws MqttException, IOException {
         System.out.println("Loglevel= " + LOGGER.getLevel());
-        URI mqttURI = URI.create("tcp://127.0.0.1:1883");
+        URI mqttURI = URI.create(DEFAULT_BROKER_ADDRESS);
         if (args.length > 0) {
             mqttURI = URI.create(args[0]);
         } else {
-            LOGGER.info("Per default, 'tcp://127.0.0.1:1883' is chosen. You can provide another address as first argument i.e.: tcp://iot.eclipse.org:1883");
+            LOGGER.info("Per default, '{}' is chosen. You can provide another address as first argument i.e.: tcp://iot.eclipse.org:1883", DEFAULT_BROKER_ADDRESS);
         }
-        LOGGER.info(mqttURI + " will be used as broker address.");
+        LOGGER.info("{} will be used as broker address.", mqttURI);
 
         Long timeStamp = System.currentTimeMillis();
         String instanceName = (timeStamp % 10000) + "@" + computerName;
-        ConsoleUIService consoleUIService = new ConsoleUIService(mqttURI, instanceName, instanceName);
+
+        new ConsoleUIService(mqttURI, instanceName, instanceName);
     }
 }

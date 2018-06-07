@@ -1,13 +1,13 @@
-package info.kilchhofer.bfh.lidar.consoleuiservice.contract;
+package info.kilchhofer.bfh.robocup.consoleuiservice.binding;
 
 import ch.quantasy.mqtt.gateway.client.contract.AyamlServiceContract;
 import ch.quantasy.mqtt.gateway.client.message.Message;
-import info.kilchhofer.bfh.lidar.consoleuiservice.contract.event.ConsoleKeyPressEvent;
-import info.kilchhofer.bfh.lidar.consoleuiservice.contract.intent.ConsoleIntent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Map;
+
+import static info.kilchhofer.bfh.robocup.common.Constants.ROBOCUP_ROOT_CONTEXT;
 
 public class ConsoleUIServiceContract extends AyamlServiceContract {
 
@@ -17,11 +17,10 @@ public class ConsoleUIServiceContract extends AyamlServiceContract {
     public final String EVENT_KEYPRESS;
 
     public ConsoleUIServiceContract(String instanceID) {
-        super("Robocup", "LidarConsoleUI", instanceID);
+        super(ROBOCUP_ROOT_CONTEXT, "ConsoleUI", instanceID);
 
 
         KEYPRESS = "keypress";
-
         EVENT_KEYPRESS = EVENT + "/" + KEYPRESS;
     }
 

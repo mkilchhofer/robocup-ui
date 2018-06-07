@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>info.kilchhofer.bfh</groupId>
     <artifactId>robocup-ui</artifactId>
     <packaging>pom</packaging>
     <version>${revision}</version>
@@ -41,7 +40,7 @@
             <dependency>
                 <groupId>info.kilchhofer.bfh</groupId>
                 <artifactId>robocup-common</artifactId>
-                <version>20180603.0</version>
+                <version>20180607.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

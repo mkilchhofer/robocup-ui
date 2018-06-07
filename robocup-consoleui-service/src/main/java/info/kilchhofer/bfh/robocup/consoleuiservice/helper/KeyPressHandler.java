@@ -1,4 +1,4 @@
-package info.kilchhofer.bfh.lidar.consoleuiservice.helper;
+package info.kilchhofer.bfh.robocup.consoleuiservice.helper;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -12,10 +12,10 @@ import java.nio.charset.Charset;
 public class KeyPressHandler implements Runnable {
 
     private static final Logger LOGGER = LogManager.getLogger(KeyPressHandler.class);
-    private IKeyPress keyPressCallback;
+    private IKeyPressListener keyPressCallback;
     private Terminal terminal;
 
-    public KeyPressHandler(IKeyPress keyPressCallback) throws IOException, InterruptedException {
+    public KeyPressHandler(IKeyPressListener keyPressCallback) throws IOException {
         this.terminal = new DefaultTerminalFactory(System.out, System.in, Charset.forName("UTF8")).createTerminal();
         this.keyPressCallback = keyPressCallback;
     }
@@ -40,7 +40,7 @@ public class KeyPressHandler implements Runnable {
                 LOGGER.info("'q' Pressed. Exiting...");
                 System.exit(0);
             } else {
-                LOGGER.info("Pressed '{}'.", key.getCharacter());
+                LOGGER.info("Pressed '{}'. String Length: {}", key.getCharacter(), key.getCharacter().toString().length());
                 keyPressCallback.keyPressed(key.getCharacter());
             }
         }

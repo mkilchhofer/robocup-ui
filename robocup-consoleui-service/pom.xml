@@ -39,7 +39,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>info.kilchhofer.bfh.lidar.consoleuiservice.ConsoleUIServiceRunner</mainClass>
+                            <mainClass>info.kilchhofer.bfh.robocup.consoleuiservice.ConsoleUIServiceRunner</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -53,7 +53,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>info.kilchhofer.bfh.lidar.consoleuiservice.ConsoleUIServiceRunner</mainClass>
+                            <mainClass>info.kilchhofer.bfh.robocup.consoleuiservice.ConsoleUIServiceRunner</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
