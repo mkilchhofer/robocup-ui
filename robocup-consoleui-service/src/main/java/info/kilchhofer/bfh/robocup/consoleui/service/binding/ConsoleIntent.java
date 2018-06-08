@@ -1,4 +1,4 @@
-package info.kilchhofer.bfh.robocup.consoleuiservice.binding;
+package info.kilchhofer.bfh.robocup.consoleui.service.binding;
 
 import ch.quantasy.mqtt.gateway.client.message.AnIntent;
 import ch.quantasy.mqtt.gateway.client.message.annotations.Nullable;
@@ -12,4 +12,11 @@ public class ConsoleIntent extends AnIntent{
     @Nullable
     @StringForm
     public String consoleMessage;
+
+    public ConsoleIntent(String consoleMessage){
+        this.consoleMessage = consoleMessage;
+    }
+
+    public ConsoleIntent(){
+    }
 }

@@ -1,12 +1,12 @@
-package info.kilchhofer.bfh.robocup.consoleuiservice;
+package info.kilchhofer.bfh.robocup.consoleui.service;
 
 import ch.quantasy.mqtt.gateway.client.GatewayClient;
 import ch.quantasy.mqtt.gateway.client.message.MessageReceiver;
-import info.kilchhofer.bfh.robocup.consoleuiservice.binding.ConsoleUIServiceContract;
-import info.kilchhofer.bfh.robocup.consoleuiservice.binding.ConsoleKeyPressEvent;
-import info.kilchhofer.bfh.robocup.consoleuiservice.binding.ConsoleIntent;
-import info.kilchhofer.bfh.robocup.consoleuiservice.helper.IKeyPressListener;
-import info.kilchhofer.bfh.robocup.consoleuiservice.helper.KeyPressHandler;
+import info.kilchhofer.bfh.robocup.consoleui.service.binding.ConsoleIntent;
+import info.kilchhofer.bfh.robocup.consoleui.service.binding.ConsoleKeyPressEvent;
+import info.kilchhofer.bfh.robocup.consoleui.service.binding.ConsoleUIServiceContract;
+import info.kilchhofer.bfh.robocup.consoleui.service.helper.IKeyPressListener;
+import info.kilchhofer.bfh.robocup.consoleui.service.helper.KeyPressHandler;
 import org.apache.logging.log4j.LogManager;
 import org.eclipse.paho.client.mqttv3.MqttException;
 

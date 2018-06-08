@@ -1,4 +1,4 @@
-package info.kilchhofer.bfh.robocup.consoleuiservice;
+package info.kilchhofer.bfh.robocup.consoleui.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

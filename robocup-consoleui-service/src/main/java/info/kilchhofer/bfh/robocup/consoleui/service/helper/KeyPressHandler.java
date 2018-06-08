@@ -1,4 +1,4 @@
-package info.kilchhofer.bfh.robocup.consoleuiservice.helper;
+package info.kilchhofer.bfh.robocup.consoleui.service.helper;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;

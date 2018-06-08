@@ -1,4 +1,4 @@
-package info.kilchhofer.bfh.robocup.consoleuiservice.binding;
+package info.kilchhofer.bfh.robocup.consoleui.service.binding;
 
 import ch.quantasy.mqtt.gateway.client.contract.AyamlServiceContract;
 import ch.quantasy.mqtt.gateway.client.message.Message;
