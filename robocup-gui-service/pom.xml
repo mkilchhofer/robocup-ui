@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>robocup-gui</artifactId>
+    <artifactId>robocup-gui-service</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
