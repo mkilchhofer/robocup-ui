@@ -17,13 +17,14 @@ public class ConsoleUIService {
 
     private final GatewayClient<ConsoleUIServiceContract> gatewayClient;
     private KeyPressHandler keyPressHandler;
+    private MessageReceiver intentReceiver;
     private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(GatewayClient.class);
 
     public ConsoleUIService(URI mqttURI, String mqttClientName, String instanceName) throws MqttException, IOException {
 
         this.gatewayClient = new GatewayClient<>(mqttURI, mqttClientName, new ConsoleUIServiceContract(instanceName));
 
-        MessageReceiver intentReceiver = new MessageReceiver() {
+        this.intentReceiver = new MessageReceiver() {
             @Override
             public void messageReceived(String topic, byte[] payload) throws Exception {
                 for(ConsoleIntent intent : gatewayClient.toMessageSet(payload, ConsoleIntent.class)){
@@ -39,7 +40,7 @@ public class ConsoleUIService {
             }
         };
         this.gatewayClient.connect();
-        this.gatewayClient.subscribe(gatewayClient.getContract().INTENT + "/#", intentReceiver);
+        this.gatewayClient.subscribe(gatewayClient.getContract().INTENT + "/#", this.intentReceiver);
 
         // Console Handling
         IKeyPressListener keyPressListener = new IKeyPressListener() {
