@@ -1,13 +1,12 @@
 
 package info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers;
 
-import laser.datahandling.coord.CoordScanData;
-import laser.gui.layers.helpers.ColorCalc;
-import laser.gui.references.GUIReference;
+import info.kilchhofer.bfh.robocup.gui.service.binding.CartesianPoint;
+import info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers.helpers.ColorCalc;
+import info.kilchhofer.bfh.robocup.gui.service.hftm.gui.references.GUIReference;
+import org.apache.logging.log4j.LogManager;
 
 import java.awt.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -15,6 +14,7 @@ import java.util.logging.Logger;
  */
 public class ReflectDistAndRSSILayer extends ReflectDistLayer
 {
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(ReflectDistAndRSSILayer.class);
     private ColorCalc colorBar;
     
     public ReflectDistAndRSSILayer(GUIReference guiReference, ColorCalc colorBar)
@@ -25,7 +25,7 @@ public class ReflectDistAndRSSILayer extends ReflectDistLayer
     }
 
     @Override
-    protected Color getColorOfReflectionPoint(CoordScanData scandata)
+    protected Color getColorOfReflectionPoint(CartesianPoint scandata)
     {
         try
         {
@@ -33,7 +33,7 @@ public class ReflectDistAndRSSILayer extends ReflectDistLayer
         }
         catch (Exception ex)
         {
-            Logger.getLogger(ReflectDistAndRSSILayer.class.getName()).log(Level.SEVERE, null, ex);
+            LOGGER.error("Exception during getColorOfReflectionPoint occurred:", ex);
             return Color.black;
         }
     }

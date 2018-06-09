@@ -1,6 +1,6 @@
 package info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers.helpers;
 
-import laser.gui.layers.ILayer;
+import info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers.ILayer;
 
 import java.awt.*;
 import java.util.logging.Level;

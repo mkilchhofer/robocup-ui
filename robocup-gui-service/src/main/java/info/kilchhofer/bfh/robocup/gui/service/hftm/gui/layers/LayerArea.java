@@ -1,8 +1,7 @@
-
 package info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers;
 
-import laser.gui.layers.helpers.ColorCalc;
-import laser.gui.references.GUIReference;
+import info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers.helpers.ColorCalc;
+import info.kilchhofer.bfh.robocup.gui.service.hftm.gui.references.GUIReference;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +24,7 @@ public class LayerArea extends JPanel
     public LayerArea()
     {
         this.setSize(500, 500);
-        this.setBackground(Color.gray);
+        this.setBackground(Color.white);
         this.setLayout(null);
         this.setVisible(true);
         

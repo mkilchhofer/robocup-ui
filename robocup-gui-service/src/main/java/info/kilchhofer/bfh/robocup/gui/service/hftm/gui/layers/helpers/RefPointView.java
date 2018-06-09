@@ -1,8 +1,6 @@
-
 package info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers.helpers;
 
-import laser.gui.references.GUIReference;
-import laser.references.AReferencePoint;
+import info.kilchhofer.bfh.robocup.gui.service.hftm.gui.references.GUIReference;
 
 import java.awt.*;
 
@@ -14,9 +12,9 @@ public class RefPointView
 {
     private static int DIAMETER = 20;
 
-    public static void drawReferencePoint(GUIReference guiReference, AReferencePoint drawingReference, Graphics g)
+    public static void drawReferencePoint(GUIReference guiReference, Graphics g)
     {        
-        Point calculatePointInGUI = guiReference.calculatePointInGUI(drawingReference, new Point(0,0));
+        Point calculatePointInGUI = guiReference.calculatePointInGUI(new Point(0,0));
         int x = calculatePointInGUI.x - DIAMETER/2;
         int y = calculatePointInGUI.y - DIAMETER/2;
 
@@ -29,9 +27,9 @@ public class RefPointView
         g.fillArc(x+2, y+2, DIAMETER-4, DIAMETER-4, 180, 90);
     }
     
-    public static void drawAbsoluteReferencePoint(GUIReference guiReference, AReferencePoint drawingReference, Graphics g)
+    public static void drawAbsoluteReferencePoint(GUIReference guiReference, Graphics g)
     {        
-        Point calculatePointInGUI = guiReference.calculatePointInGUI(drawingReference, new Point(0,0));
+        Point calculatePointInGUI = guiReference.calculatePointInGUI(new Point(0,0));
         int x = calculatePointInGUI.x - DIAMETER/2;
         int y = calculatePointInGUI.y - DIAMETER/2;
         

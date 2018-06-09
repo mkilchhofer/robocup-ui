@@ -1,10 +1,7 @@
 package info.kilchhofer.bfh.robocup.gui.service.hftm.gui.layers;
 
-import laser.datahandling.lineExtraction.ExtractedLine;
-import laser.datahandling.lineExtraction.Straight;
-import laser.datahandling.lineExtraction.Vector;
-import laser.gui.references.GUIReference;
-import laser.references.AbsoluteReferencePoint;
+import info.kilchhofer.bfh.robocup.gui.service.hftm.gui.references.GUIReference;
+import info.kilchhofer.bfh.robocup.gui.service.binding.Line;
 
 import java.awt.*;
 import java.util.List;
@@ -12,54 +9,45 @@ import java.util.List;
 /**
  *
  * @author sdb
+ * refactored mkilchhofer
  */
 public class LineExtractionLayer implements ILayer
 {
 
     // objects
-    private List<ExtractedLine> straights;
+    private List<Line> lines;
     private GUIReference guiReference;
-
-    private Straight tempStraight; // TEMP!!!!!!
 
     public LineExtractionLayer(GUIReference guiReference)
     {
         this.guiReference = guiReference;
-        this.tempStraight = new Straight(new Vector(-200, 10, 0), new Vector(300, 500, 0));
     }
 
     @Override
     public void draw(Graphics g)
     {
-        if (this.straights != null)
+        if (this.lines != null)
         {
-            for (ExtractedLine straight : this.straights)
+            for (Line line : this.lines)
             {
-                this.drawStraight(straight, g);
+                this.drawStraight(line.getStartPoint(), line.getStopPoint(), g);
             }
         }
     }
 
     // getter & setter
-    public void setStraights(List<ExtractedLine> straights)
+    public void setStraights(List<Line> lines)
     {
-        this.straights = straights;
+        this.lines = lines;
     }
 
     // private methods
-    private void drawStraight(ExtractedLine straight, Graphics g)
+    private void drawStraight(Point startPoint, Point endPoint, Graphics g)
     {
-        Point a = this.guiReference.calculatePointInGUI(
-                AbsoluteReferencePoint.getInstance(),
-                straight.getStartReflection().getPoint());
-
-        Point b = this.guiReference.calculatePointInGUI(
-                AbsoluteReferencePoint.getInstance(),
-                straight.getEndReflection().getPoint()
-        );
+        Point a = this.guiReference.calculatePointInGUI(startPoint);
+        Point b = this.guiReference.calculatePointInGUI(endPoint);
 
         g.setColor(Color.red);
         g.drawLine(a.x, a.y, b.x, b.y);
     }
-
 }

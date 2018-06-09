@@ -1,7 +1,8 @@
 
 package info.kilchhofer.bfh.robocup.gui.service.hftm.gui.references;
 
-import laser.references.AReferencePoint;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 
@@ -11,6 +12,7 @@ import java.awt.*;
  */
 public class GUIReference
 {
+    private static final Logger LOGGER = LogManager.getLogger(GUIReference.class);
     private int xPos, yPos;
     private int scaleFactor;
     private int guiWidth, guiHeight;
@@ -32,22 +34,23 @@ public class GUIReference
         this.guiHeight = height;
     }
     
-    public Point calculatePointInGUI(AReferencePoint reference, Point point)
+    public Point calculatePointInGUI(Point point)
     {
-        int tempX = calculateDistanceMMToGUIPx(reference.getAbsolutX() + point.x);
-        int tempY = calculateDistanceMMToGUIPx(reference.getAbsolutY() - point.y);
-        
+        int tempX = calculateMillimeterToPixel(point.x);
+        int tempY = calculateMillimeterToPixel(0 - point.y);
+        LOGGER.trace("this.xPos: {}, this.yPos: {}", this.xPos, this.yPos);
+        LOGGER.trace("tempX: {}, tempY: {}", tempX, tempY);
         return new Point(this.xPos + tempX, this.yPos + tempY);
     }
     
-    public int calculateDistanceMMToGUIPx(int mm)
+    public int calculateMillimeterToPixel(int mm)
     {
         float realValue = (((float)(mm * this.scaleFactor)) / ((float)1000));
         
         return (int)realValue;
     }
     
-    public int calculateGUIPxToDistanceMM(int px)
+    public int calculatePixelToMillimeter(int px)
     {
         float realValue =(((float)(px * 1000)) / ((float)this.scaleFactor));
         
@@ -83,7 +86,8 @@ public class GUIReference
 
     public void setScale(int scale)
     {
-        scaleFactor = scale;
+        LOGGER.trace("ScaleFactor: {}", this.scaleFactor);
+        this.scaleFactor = scale;
     }
 
     public void setGUIWidth(int guiWidth)
@@ -100,12 +104,10 @@ public class GUIReference
     {
         GUIReference ref = new GUIReference(10, 10, 1100, 100, 100);
         
-        int calculateGUIPxToDistanceMM = ref.calculateGUIPxToDistanceMM(200);
+        int calculatePixelToMillimeter = ref.calculatePixelToMillimeter(200);
+        System.out.println(calculatePixelToMillimeter);
         
-        System.out.println(calculateGUIPxToDistanceMM);
-        
-        int calculateGuiDistance = ref.calculateDistanceMMToGUIPx(calculateGUIPxToDistanceMM);
-        
-        System.out.println(calculateGuiDistance);
+        int calculateMillimeterToPixel = ref.calculateMillimeterToPixel(calculatePixelToMillimeter);
+        System.out.println(calculateMillimeterToPixel);
     }
 }
