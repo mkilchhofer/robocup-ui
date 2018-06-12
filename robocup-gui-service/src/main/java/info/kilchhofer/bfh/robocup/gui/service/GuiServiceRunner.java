@@ -30,7 +30,6 @@ public class GuiServiceRunner {
         }
         LOGGER.info(mqttURI + " will be used as broker address.");
 
-        String instanceName = computerName;
-        new GuiService(mqttURI, instanceName, instanceName);
+        new GuiService(mqttURI, "Gui@" + computerName, "Gui@" + computerName);
     }
 }

@@ -16,6 +16,11 @@ public class GuiServiceContract extends AyamlServiceContract {
         super(ROBOCUP_ROOT_CONTEXT, "Gui", instanceID);
     }
 
+    public GuiServiceContract(String topic, boolean isTopic){
+        this(topic.split("/")[3]);
+        LOGGER.trace("Got topic '{}'. Extracted instance '{}'.", topic, topic.split("/")[3]);
+    }
+
     @Override
     public void setMessageTopics(Map<String, Class<? extends Message>> messageTopicMap) {
         messageTopicMap.put(INTENT, GuiIntent.class);
