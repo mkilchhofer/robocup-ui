@@ -26,6 +26,7 @@
 
     <modules>
         <module>robocup-consoleui-service</module>
+        <module>robocup-gui-service</module>
     </modules>
 
     <repositories>
