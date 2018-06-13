@@ -28,7 +28,7 @@ public class ConsoleUIService {
             @Override
             public void messageReceived(String topic, byte[] payload) throws Exception {
                 for(ConsoleIntent intent : gatewayClient.toMessageSet(payload, ConsoleIntent.class)){
-                    LOGGER.trace("Received Intent: {}", intent);
+                    LOGGER.debug("Received Intent: {}", intent);
                     if (intent.consoleMessage != null){
                         System.out.println(intent.consoleMessage);
                     }
@@ -40,6 +40,7 @@ public class ConsoleUIService {
             }
         };
         this.gatewayClient.connect();
+        LOGGER.info("Instance CANONICAL_TOPIC topic: '{}'", gatewayClient.getContract().CANONICAL_TOPIC);
         this.gatewayClient.subscribe(gatewayClient.getContract().INTENT + "/#", this.intentReceiver);
 
         // Console Handling
