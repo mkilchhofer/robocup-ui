@@ -38,6 +38,6 @@ public class ConsoleUIServiceRunner {
         Long timeStamp = System.currentTimeMillis();
         String instanceName = (timeStamp % 10000) + "@" + computerName;
 
-        new ConsoleUIService(mqttURI, instanceName, instanceName);
+        new ConsoleUIService(mqttURI, "console-" + instanceName, "console-" + instanceName);
     }
 }
